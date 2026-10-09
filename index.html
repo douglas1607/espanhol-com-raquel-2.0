@@ -6,14 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Espanhol com Raquel - Plataforma</title>
 
-  <!-- Fonte Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <!-- Fonte Montserrat e Playfair Display para a assinatura -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
 
   <!-- CSS do Plyr (Player Customizado) -->
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Biblioteca html2pdf.js para gerar o PDF do certificado -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -71,70 +73,628 @@
       <!-- Overlay para fechar o menu mobile ao clicar fora -->
       <div id="menu-overlay" class="menu-overlay"></div>
 
-      <!-- Sidebar Retrátil -->
+      <!-- Sidebar Retrátil por Níveis e Semanas -->
       <aside class="sidebar glass-sidebar" id="sidebar">
         <h3>Módulos do Curso</h3>
 
+        <!-- 1. NÍVEL BÁSICO -->
         <div class="modulo ativo">
           <button class="modulo-btn">
             <span>1. Nível Básico</span>
             <span class="icone-seta">▼</span>
           </button>
-          <ul class="lista-aulas">
-            <li class="ativa" data-titulo="Aula 01: Saludos y Presentaciones"
-              data-desc="Aprenda a saudar as pessoas e se apresentar em espanhol de forma natural."
-              data-video="8TBQCKVAYaU">
-              Aula 01: Saludos y Presentaciones
-            </li>
-            <li data-titulo="Aula 02: El Alfabeto y Pronunciación"
-              data-desc="Dominando os sons das letras e a pronúncia correta das palavras." data-video="kIhVmmBtBjY">
-              Aula 02: El Alfabeto
-            </li>
-          </ul>
+          
+          <div class="conteudo-modulo">
+            <!-- SEMANA 1 -->
+            <div class="semana ativo">
+              <button class="semana-btn">
+                <span>📅 Semana 1</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li class="ativa" data-titulo="Aula 01: Saludos y Presentaciones"
+                  data-desc="Aprenda a saudar as pessoas e se apresentar em espanhol de forma natural."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/guia-basico-s1-a1.pdf">
+                  1. Vídeo-aula: Saludos y Presentaciones
+                </li>
+                <li data-titulo="Semana 1: Vocabulário em Áudio"
+                  data-desc="Treino de escuta e pronúncia com expressões do dia a dia."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/vocabulario-basico-s1.pdf">
+                  2. Áudio/PodClass: Pronúncia
+                </li>
+                <li data-titulo="Semana 1: Leitura Guiada"
+                  data-desc="Texto curto para interpretação com vocabulário da semana."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/texto-basico-s1.pdf">
+                  3. Texto de Leitura & Vocabulário
+                </li>
+                <li data-titulo="Semana 1: Exercícios Práticos"
+                  data-desc="Fixação do conteúdo aprendido durante as aulas da semana."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/exercicios-basico-s1.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Semana 1: Desafio de Conversação"
+                  data-desc="Coloque a mão na massa gravando seu áudio de apresentação."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/desafio-basico-s1.pdf">
+                  5. Desafio / Tarefa Prática
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 2 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 2</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Aula 02: El Alfabeto y Pronunciación"
+                  data-desc="Dominando os sons das letras e a pronúncia correta das palavras."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/guia-basico-s2-a1.pdf">
+                  1. Vídeo-aula: El Alfabeto
+                </li>
+                <li data-titulo="Semana 2: Sons Fonéticos"
+                  data-desc="Treino intensivo das consoantes especiais do espanhol."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/audio-basico-s2.pdf">
+                  2. Áudio: Exercícios de Fonética
+                </li>
+                <li data-titulo="Semana 2: Leitura e Diálogo"
+                  data-desc="Diálogo prático em uma situação real."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/dialogo-basico-s2.pdf">
+                  3. Texto: Diálogos Reais
+                </li>
+                <li data-titulo="Semana 2: Exercícios de Pronúncia"
+                  data-desc="Treine e responda às questões de fixação."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/exercicios-basico-s2.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Semana 2: Tarefa em Vídeo"
+                  data-desc="Grave um pequeno vídeo soletrando seu nome completo."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/desafio-basico-s2.pdf">
+                  5. Desafio Prático
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 3 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 3</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Semana 3: Números e Artigos"
+                  data-desc="Uso dos artigos definidos/indefinidos e contagem em espanhol."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/guia-basico-s3-a1.pdf">
+                  1. Vídeo-aula: Números e Artigos
+                </li>
+                <li data-titulo="Semana 3: Treino Auditivo de Números"
+                  data-desc="Prática de compreensão oral com valores, datas e preços."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/audio-basico-s3.pdf">
+                  2. Áudio: Compreensão Auditiva
+                </li>
+                <li data-titulo="Semana 3: Leitura e Compras"
+                  data-desc="Vocabulário essencial para compras e atendimento em espanhol."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/texto-basico-s3.pdf">
+                  3. Texto: Compras e Valores
+                </li>
+                <li data-titulo="Semana 3: Fixação de Gramática"
+                  data-desc="Exercícios práticos de artigos e numerais."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/exercicios-basico-s3.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Semana 3: Desafio Simulação de Compra"
+                  data-desc="Simule a compra de um item no mercado enviando seu áudio."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/desafio-basico-s3.pdf">
+                  5. Desafio Prático
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 4 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 4</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Semana 4: Verbos Ser e Estar"
+                  data-desc="Diferenças fundamentais entre 'Ser' e 'Estar' no cotidiano."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/guia-basico-s4-a1.pdf">
+                  1. Vídeo-aula: Ser vs. Estar
+                </li>
+                <li data-titulo="Semana 4: Áudio de Situações Reais"
+                  data-desc="Identifique o uso de Ser e Estar em diálogos nativos."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/audio-basico-s4.pdf">
+                  2. Áudio: Casos de Uso
+                </li>
+                <li data-titulo="Semana 4: Texto de Descrição Pessoal"
+                  data-desc="Aprenda a descrever lugares, pessoas e estados emocionais."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/texto-basico-s4.pdf">
+                  3. Texto: Descrições
+                </li>
+                <li data-titulo="Semana 4: Exercícios de Fixação"
+                  data-desc="Preencha as lacunas com as formas corretas dos verbos."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/exercicios-basico-s4.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Semana 4: Projeto Final do Nível Básico"
+                  data-desc="Apresente-se e descreva sua rotina em espanhol."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/desafio-basico-s4.pdf">
+                  5. Desafio Final (Básico)
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
+        <!-- 2. NÍVEL INTERMEDIÁRIO -->
         <div class="modulo">
           <button class="modulo-btn">
             <span>2. Nível Intermediário</span>
             <span class="icone-seta">▼</span>
           </button>
-          <ul class="lista-aulas">
-            <li data-titulo="Aula 01: Verbos en Presente"
-              data-desc="Estrutura e conjugação dos principais verbos no presente do indicativo."
-              data-video="dQw4w9WgXcQ">
-              Aula 01: Verbos en Presente
-            </li>
-          </ul>
+          
+          <div class="conteudo-modulo">
+            <!-- SEMANA 1 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 1</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Intermediário S1: Verbos en Presente"
+                  data-desc="Estrutura e conjugação dos verbos regulares e irregulares no presente."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/guia-inter-s1-a1.pdf">
+                  1. Vídeo-aula: Verbos en Presente
+                </li>
+                <li data-titulo="Intermediário S1: Áudio Diálogos do Cotidiano"
+                  data-desc="Escuta ativa com conversas do dia a dia no presente."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/audio-inter-s1.pdf">
+                  2. Áudio: Conversação
+                </li>
+                <li data-titulo="Intermediário S1: Texto de Rotina e Trabalho"
+                  data-desc="Leitura focada em rotinas profissionais e pessoais."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/texto-inter-s1.pdf">
+                  3. Texto: Rotina e Profissões
+                </li>
+                <li data-titulo="Intermediário S1: Exercícios de Conjugação"
+                  data-desc="Treine a conjugação rápida dos verbos irregulares."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/exercicios-inter-s1.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Intermediário S1: Desafio Minha Rotina"
+                  data-desc="Grave um áudio descrevendo um dia típico na sua profissão."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/desafio-inter-s1.pdf">
+                  5. Desafio Prático
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 2 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 2</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Intermediário S2: Pretérito Indefinido"
+                  data-desc="Como falar do passado concluído em espanhol."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/guia-inter-s2-a1.pdf">
+                  1. Vídeo-aula: Indefinido
+                </li>
+                <li data-titulo="Intermediário S2: Histórias em Áudio"
+                  data-desc="Ouça nativos contando experiências passadas."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/audio-inter-s2.pdf">
+                  2. Áudio: Relatos do Passado
+                </li>
+                <li data-titulo="Intermediário S2: Texto Biográfico"
+                  data-desc="Interpretação de biografias e relatos históricos."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/texto-inter-s2.pdf">
+                  3. Texto: Biografias
+                </li>
+                <li data-titulo="Intermediário S2: Exercícios de Passado"
+                  data-desc="Pratique a passagem do presente para o passado."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/exercicios-inter-s2.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Intermediário S2: Desafio Minha Última Viagem"
+                  data-desc="Conte como foi sua última viagem usando o pretérito indefinido."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/desafio-inter-s2.pdf">
+                  5. Desafio Prático
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 3 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 3</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Intermediário S3: Pretérito Imperfecto"
+                  data-desc="Descrevendo hábitos do passado e cenários antigos."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/guia-inter-s3-a1.pdf">
+                  1. Vídeo-aula: Imperfecto
+                </li>
+                <li data-titulo="Intermediário S3: Áudio Infância e Memórias"
+                  data-desc="Compreensão oral de memórias e histórias de infância."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/audio-inter-s3.pdf">
+                  2. Áudio: Memórias
+                </li>
+                <li data-titulo="Intermediário S3: Texto de Hábitos Antigos"
+                  data-desc="Comparação entre a vida no passado e nos dias de hoje."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/texto-inter-s3.pdf">
+                  3. Texto: Antes x Agora
+                </li>
+                <li data-titulo="Intermediário S3: Exercícios de Contraste"
+                  data-desc="Indefinido x Imperfecto em frases práticas."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/exercicios-inter-s3.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Intermediário S3: Desafio Como Era Minha Infância"
+                  data-desc="Grave um áudio contando como era sua vida há 10 anos."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/desafio-inter-s3.pdf">
+                  5. Desafio Prático
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 4 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 4</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Intermediário S4: Futuro Simple y Perífrasis"
+                  data-desc="Como planejar e expressar planos futuros com fluidez."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/guia-inter-s4-a1.pdf">
+                  1. Vídeo-aula: Futuro em Espanhol
+                </li>
+                <li data-titulo="Intermediário S4: Áudio Planos de Vida"
+                  data-desc="Diálogos sobre metas, carreira e viagens futuras."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/audio-inter-s4.pdf">
+                  2. Áudio: Metas e Projetos
+                </li>
+                <li data-titulo="Intermediário S4: Texto de Previsão e Tendências"
+                  data-desc="Leitura sobre o futuro do trabalho e tecnologia."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/texto-inter-s4.pdf">
+                  3. Texto: O Futuro
+                </li>
+                <li data-titulo="Intermediário S4: Exercícios de Futuro"
+                  data-desc="Exercícios com 'Ir a + Infinitivo' e Futuro Simple."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/exercicios-inter-s4.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Intermediário S4: Desafio Meus Próximos 5 Anos"
+                  data-desc="Apresente seus planos pessoais e profissionais para o futuro."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/desafio-inter-s4.pdf">
+                  5. Desafio Final (Intermediário)
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
+        <!-- 3. NÍVEL AVANÇADO -->
         <div class="modulo">
           <button class="modulo-btn">
             <span>3. Nível Avançado</span>
             <span class="icone-seta">▼</span>
           </button>
-          <ul class="lista-aulas">
-            <li data-titulo="Aula 01: Expresiones Idiomáticas"
-              data-desc="Expressões nativas e espanhol para conversações fluentes e negócios." data-video="dQw4w9WgXcQ">
-              Aula 01: Expresiones Idiomáticas
-            </li>
-          </ul>
+          
+          <div class="conteudo-modulo">
+            <!-- SEMANA 1 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 1</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Avançado S1: Subjuntivo en Presente"
+                  data-desc="Expressando desejos, dúvidas e opiniões em alto nível."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/guia-avancado-s1-a1.pdf">
+                  1. Vídeo-aula: Presente de Subjuntivo
+                </li>
+                <li data-titulo="Avançado S1: Debates e Opiniões em Áudio"
+                  data-desc="Escuta avançada com argumentos e debates em espanhol."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/audio-avancado-s1.pdf">
+                  2. Áudio: Debates Nativos
+                </li>
+                <li data-titulo="Avançado S1: Texto de Opinião Crítica"
+                  data-desc="Análise de artigos jornalísticos e ensaios."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/texto-avancado-s1.pdf">
+                  3. Texto: Artigos de Opinião
+                </li>
+                <li data-titulo="Avançado S1: Exercícios de Subjuntivo"
+                  data-desc="Treine os gatilhos do subjuntivo (Ojalá, Quiero que...)."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/exercicios-avancado-s1.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Avançado S1: Desafio Meu Ponto de Vista"
+                  data-desc="Grave um posicionamento sobre um tema da atualidade."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/desafio-avancado-s1.pdf">
+                  5. Desafio Prático
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 2 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 2</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Avançado S2: Conectores y Fluidez"
+                  data-desc="Uso de conectores avançados para unir ideias naturalmente."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/guia-avancado-s2-a1.pdf">
+                  1. Vídeo-aula: Conectores de Discurso
+                </li>
+                <li data-titulo="Avançado S2: Discursos Profissionais"
+                  data-desc="Compreensão de apresentações formais e reuniões de negócios."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/audio-avancado-s2.pdf">
+                  2. Áudio: Negócios e Reuniões
+                </li>
+                <li data-titulo="Avançado S2: Texto de Negócios"
+                  data-desc="Leitura de relatórios e propostas comerciais em espanhol."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/texto-avancado-s2.pdf">
+                  3. Texto: Espanhol para Negócios
+                </li>
+                <li data-titulo="Avançado S2: Exercícios de Argumentação"
+                  data-desc="Reescreva frases utilizando conectores formais."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/exercicios-avancado-s2.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Avançado S2: Desafio Apresentação Comercial"
+                  data-desc="Simule a apresentação de um projeto em uma reunião."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/desafio-avancado-s2.pdf">
+                  5. Desafio Prático
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 3 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 3</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Avançado S3: Expresiones Idiomáticas y Modismos"
+                  data-desc="Expressões idiomáticas nativas de países hispanohablantes."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/guia-avancado-s3-a1.pdf">
+                  1. Vídeo-aula: Modismos Nativos
+                </li>
+                <li data-titulo="Avançado S3: PodClass de Variedades Linguísticas"
+                  data-desc="Sotaques e gírias da Espanha, Argentina, México e Colômbia."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/audio-avancado-s3.pdf">
+                  2. Áudio: Sotaques Hispânicos
+                </li>
+                <li data-titulo="Avançado S3: Literatura Hispânica"
+                  data-desc="Trechos de grandes autores para enriquecimento cultural."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/texto-avancado-s3.pdf">
+                  3. Texto: Leitura Literária
+                </li>
+                <li data-titulo="Avançado S3: Exercícios de Expressões"
+                  data-desc="Relacione as expressões com seus significados reais."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/exercicios-avancado-s3.pdf">
+                  4. Lista de Exercícios
+                </li>
+                <li data-titulo="Avançado S3: Desafio Storytelling"
+                  data-desc="Conte uma história usando pelo menos 3 expressões nativas."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/desafio-avancado-s3.pdf">
+                  5. Desafio Prático
+                </li>
+              </ul>
+            </div>
+
+            <!-- SEMANA 4 -->
+            <div class="semana">
+              <button class="semana-btn">
+                <span>📅 Semana 4</span>
+                <span class="icone-seta">▼</span>
+              </button>
+              <ul class="lista-aulas">
+                <li data-titulo="Avançado S4: Fluidez Total y Oratória"
+                  data-desc="Técnicas para falar sem travar em conversas complexas."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/guia-avancado-s4-a1.pdf">
+                  1. Vídeo-aula: Oratória em Espanhol
+                </li>
+                <li data-titulo="Avançado S4: Entrevistas Nativas"
+                  data-desc="Escuta rápida sem legendas de entrevistas reais."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/audio-avancado-s4.pdf">
+                  2. Áudio: Entrevistas
+                </li>
+                <li data-titulo="Avançado S4: Texto de Encerramento do Curso"
+                  data-desc="Reflexão sobre a jornada de aprendizado do idioma."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/texto-avancado-s4.pdf">
+                  3. Texto: Fluidez
+                </li>
+                <li data-titulo="Avançado S4: Avaliação Final do Curso"
+                  data-desc="Questionário geral sobre todos os tópicos do curso."
+                  data-video="8TBQCKVAYaU"
+                  data-pdf="materiais/exercicios-avancado-s4.pdf">
+                  4. Avaliação Final
+                </li>
+                <li id="item-gerar-certificado" data-titulo="Avançado S4: Projeto Final de Conclusão"
+                  data-desc="Parabéns por chegar até aqui! Clique abaixo para emitir e baixar seu Certificado de Conclusão."
+                  data-video="kIhVmmBtBjY"
+                  data-pdf="materiais/desafio-avancado-s4.pdf">
+                  5. Projeto Final & Emitir Certificado 🎓
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+
       </aside>
 
       <!-- Player de Vídeo e Detalhes -->
       <main class="conteudo-principal">
         <div class="video-card glass-card">
           <div class="video-container">
-            <!-- Div compatível com o Plyr -->
             <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="8TBQCKVAYaU"></div>
           </div>
         </div>
 
+        <!-- Detalhes da Aula -->
         <div class="detalhes-aula glass-card">
           <h1 id="titulo-aula">Aula 01: Saludos y Presentaciones</h1>
           <p id="desc-aula">Aprenda a saudar as pessoas e se apresentar em espanhol de forma natural.</p>
         </div>
+
+        <!-- Anexo do Guia de Estudos (PDF) -->
+        <div class="card-pdf glass-card">
+          <div class="pdf-info">
+            <span class="icone-pdf">📄</span>
+            <div>
+              <h3>Guia de Estudos (PDF)</h3>
+              <p>Baixe o material de apoio e resumos para acompanhar esta aula.</p>
+            </div>
+          </div>
+          <a id="btn-download-pdf" href="materiais/guia-basico-s1-a1.pdf" target="_blank" download class="btn-pdf">
+            ⬇️ Baixar PDF
+          </a>
+        </div>
+
+        <!-- Card de Emissão do Certificado (Oculto por padrão) -->
+        <div id="card-gerar-certificado" class="glass-card" style="display: none; width: 100%; max-width: 900px; text-align: center; padding: 30px; margin-top: 10px;">
+          <h2 style="color: var(--verde); margin-bottom: 10px;">🎓 Parabéns pela Conclusão!</h2>
+          <p style="color: var(--verde-escuro); margin-bottom: 20px;">Você completou todos os módulos do curso Espanhol com Raquel.</p>
+          
+          <div style="display: flex; gap: 10px; justify-content: center; max-width: 400px; margin: 0 auto 20px auto;">
+            <input type="text" id="nome-certificado" placeholder="Confirme seu nome completo" style="padding: 12px; border-radius: 8px; border: 2px solid var(--verde); width: 100%; font-family: 'Montserrat', sans-serif;">
+          </div>
+          
+          <button id="btn-emitir-certificado" class="btn" style="width: auto; padding: 12px 30px;">
+            📜 Baixar Certificado em PDF
+          </button>
+        </div>
+
+        <!-- Seção de Notas e Dúvidas dos Alunos -->
+        <div class="secao-comentarios glass-card">
+          <h3>💬 Dúvidas & Anotações dos Alunos</h3>
+          <p class="subtitulo-comentarios">Deixe suas dúvidas sobre esta aula para a professora Raquel responder ou consulte os comentários dos colegas.</p>
+          
+          <form id="form-comentario" class="form-comentario">
+            <textarea id="texto-comentario" rows="3" placeholder="Escreva aqui sua dúvida ou anotação..." required></textarea>
+            <button type="submit" class="btn btn-comentar">Enviar Dúvida</button>
+          </form>
+
+          <!-- Mural onde os comentários ficam fixados -->
+          <div class="lista-comentarios" id="lista-comentarios">
+            <div class="comentario-item">
+              <div class="comentario-header">
+                <strong>Maria Silva</strong>
+                <span class="data-comentario">10/10/2026</span>
+              </div>
+              <p class="texto-comentario-conteudo">Professora, qual é a diferença entre "Buenas tardes" e "Buenas noches" quando acabo de chegar a um restaurante?</p>
+            </div>
+          </div>
+        </div>
+
       </main>
+    </div>
+  </div>
+
+  <!-- TEMPLATE OCULTO DO CERTIFICADO REDESENHADO -->
+  <div style="display: none;">
+    <div id="certificado-template" class="certificado-container">
+      <div class="certificado-borda">
+        <div class="certificado-header">
+          <h1>ESPANHOL COM RAQUEL</h1>
+          <p class="subtitulo-cert">PLATAFORMA INTERACIONAL DE IDIOMAS</p>
+        </div>
+        
+        <div class="certificado-body">
+          <h2>CERTIFICADO DE CONCLUSÃO</h2>
+          <p class="texto-cert">Certificamos para os devidos fins que</p>
+          <h3 id="cert-nome-aluno">NOME DO ALUNO</h3>
+          <p class="texto-cert">
+            concluiu com êxito o programa completo de capacitação no curso livre de <strong>Espanhol com Raquel</strong>, perfazendo o domínio dos módulos 
+            <strong>Básico, Intermediário e Avançado</strong>, com carga horária total de <strong>60 horas</strong>.
+          </p>
+        </div>
+
+        <div class="certificado-footer">
+          <div class="selo-excelencia">
+            <span class="selo-icone">🎖️</span>
+            <span>EXCELÊNCIA<br>CURSO LIVRE</span>
+          </div>
+
+          <div class="assinatura-bloco">
+            <span class="texto-assinatura-script">Raquel</span>
+            <div class="linha-assinatura"></div>
+            <strong>Profª. Raquel</strong>
+            <span>Mentora & Fundadora</span>
+          </div>
+
+          <div class="data-bloco">
+            <p>Data de Emissão:</p>
+            <strong id="cert-data-emissao">09/10/2026</strong>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
