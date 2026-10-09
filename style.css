@@ -1,0 +1,481 @@
+/* =======================================================
+   1. VARIÁVEIS E ESTILOS GLOBAIS (PALETA ESPANHOL COM RAQUEL)
+   ======================================================= */
+:root {
+    --verde: #3e815f;
+    --terracota: #ec5a41;
+    --bege: #efe2d2;
+    --verde-escuro: #142d20;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(to right, var(--verde-escuro), var(--verde));
+    background-attachment: fixed;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* =======================================================
+   2. TELA DE LOGIN / CADASTRO (#tela-login)
+   ======================================================= */
+#tela-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card-login {
+    background-color: var(--bege);
+    padding: 40px 30px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 420px;
+    border: 2px solid rgba(236, 90, 65, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card-login:hover {
+    border-color: var(--terracota);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 0 25px rgba(236, 90, 65, 0.2);
+}
+
+.card-login h2 {
+    color: var(--verde);
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.campo {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.campo label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--verde);
+    margin-bottom: 6px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: 2px solid rgba(62, 129, 95, 0.2);
+    border-radius: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    color: #222222;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.campo input:focus {
+    border-color: var(--terracota);
+    box-shadow: 0 0 0 4px rgba(236, 90, 65, 0.15);
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--terracota);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #f06a53;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mensagem {
+    color: var(--terracota);
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.trocar-modo {
+    color: var(--verde);
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.trocar-modo:hover {
+    color: var(--terracota);
+}
+
+/* =======================================================
+   3. ÁREA RESTRITA DO ALUNO (#area-aluno)
+   ======================================================= */
+#area-aluno {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header Superior (glass-header) */
+.glass-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--bege);
+    color: var(--verde);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-menu-mobile {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: var(--verde);
+    cursor: pointer;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--verde);
+}
+
+/* Perfil e Usuário */
+.usuario-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--verde);
+    color: var(--bege);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-aluno {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--terracota);
+    letter-spacing: 0.5px;
+}
+
+.email-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--verde);
+}
+
+.btn-sair {
+    background: transparent;
+    border: 2px solid var(--terracota);
+    color: var(--terracota);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.btn-sair:hover {
+    background-color: var(--terracota);
+    color: #ffffff;
+}
+
+/* =======================================================
+   4. LAYOUT DA PLATAFORMA (SIDEBAR + PLAYER LADO A LADO)
+   ======================================================= */
+.layout-plataforma {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Overlay do Menu Mobile */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 80;
+}
+
+.menu-overlay.ativo {
+    display: block;
+}
+
+/* Sidebar de Módulos (glass-sidebar) */
+.sidebar {
+    width: 360px;
+    background-color: var(--bege);
+    border-right: 2px solid rgba(62, 129, 95, 0.15);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 90;
+    transition: transform 0.3s ease;
+}
+
+.sidebar h3 {
+    padding: 20px 20px 15px 20px;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--verde);
+    border-bottom: 2px solid rgba(62, 129, 95, 0.15);
+}
+
+/* Módulos do Curso */
+.modulo {
+    border-bottom: 1px solid rgba(62, 129, 95, 0.15);
+}
+
+.modulo-btn {
+    width: 100%;
+    padding: 18px 20px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--verde);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.modulo-btn:hover {
+    background-color: rgba(62, 129, 95, 0.08);
+}
+
+.icone-seta {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.modulo.ativo .icone-seta {
+    transform: rotate(180deg);
+}
+
+/* Lista de Aulas Retrátil */
+.lista-aulas {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.modulo.ativo .lista-aulas {
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.lista-aulas li {
+    padding: 14px 20px 14px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--verde);
+    cursor: pointer;
+    border-left: 4px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.lista-aulas li:hover {
+    background-color: rgba(236, 90, 65, 0.1);
+    color: var(--terracota);
+}
+
+.lista-aulas li.ativa {
+    background-color: #ffffff;
+    color: var(--terracota);
+    border-left-color: var(--terracota);
+    font-weight: 800;
+}
+
+/* =======================================================
+   5. PLAYER DE VÍDEO E DETALHES DA AULA
+   ======================================================= */
+.conteudo-principal {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =======================================================
+   CORREÇÃO DO PLAYER DE VÍDEO (PROPORÇÃO 16:9)
+   ======================================================= */
+/* Customização das Cores do Player Plyr */
+:root {
+    --plyr-color-main: #ec5a41;
+    /* Terracota para barra de progresso e botões */
+    --plyr-video-control-color: #efe2d2;
+    --plyr-video-control-color-hover: #ffffff;
+}
+
+.video-card {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--bege);
+    border-radius: 20px;
+    border: 2px solid rgba(236, 90, 65, 0.2);
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.plyr {
+    border-radius: 12px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+    object-fit: contain !important;
+    /* Evita que o vídeo seja cortado ou esticado */
+}
+
+.detalhes-aula {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--bege);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 25px;
+    border: 2px solid rgba(236, 90, 65, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.detalhes-aula h1 {
+    color: var(--verde);
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.detalhes-aula p {
+    color: var(--verde);
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* =======================================================
+   6. RESPONSIVIDADE (CELULAR E TABLET - MAX-WIDTH: 768px)
+   ======================================================= */
+@media (max-width: 768px) {
+    .btn-menu-mobile {
+        display: block;
+    }
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .user-details {
+        display: none;
+    }
+
+    .glass-header {
+        padding: 12px 18px;
+    }
+
+    /* Sidebar vira gaveta retrátil no celular */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        transform: translateX(-100%);
+        box-shadow: 10px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.aberto {
+        transform: translateX(0);
+    }
+
+    .conteudo-principal {
+        padding: 15px;
+    }
+
+    .detalhes-aula h1 {
+        font-size: 20px;
+    }
+
+    .detalhes-aula p {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espanhol com Raquel - Plataforma</title>
+
+  <!-- Fonte Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS do Plyr (Player Customizado) -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- TELA DE LOGIN / CADASTRO -->
+  <div id="tela-login">
+    <div class="card-login glass-card">
+      <h2 id="titulo-form">Login do Aluno</h2>
+      <form id="form-auth">
+        <div class="campo" id="campo-apelido" style="display: none;">
+          <label for="apelido">Como quer ser chamado(a)?</label>
+          <input type="text" id="apelido" placeholder="Ex: Maikon">
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required placeholder="aluno@email.com">
+        </div>
+
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" required placeholder="Mínimo 6 caracteres">
+        </div>
+
+        <button type="submit" class="btn" id="btn-submit">Entrar</button>
+      </form>
+      <div class="mensagem" id="mensagem"></div>
+      <div class="trocar-modo" id="trocar-modo">Não tem conta? Cadastre-se</div>
+    </div>
+  </div>
+
+  <!-- ÁREA RESTRITA DO ALUNO -->
+  <div id="area-aluno">
+    <header class="glass-header">
+      <div class="header-left">
+        <!-- Botão Menu Mobile -->
+        <button id="btn-menu-mobile" class="btn-menu-mobile" aria-label="Abrir Menu">
+          ☰
+        </button>
+        <div class="brand">Espanhol com Raquel</div>
+      </div>
+
+      <!-- Topo com Apelido do Aluno -->
+      <div class="usuario-badge">
+        <div class="avatar" id="user-avatar">A</div>
+        <div class="user-details">
+          <span class="label-aluno">Aluno On-line</span>
+          <span id="user-display-name" class="email-text">Aluno</span>
+        </div>
+        <button id="btn-sair" class="btn-sair">Sair</button>
+      </div>
+    </header>
+
+    <div class="layout-plataforma">
+      <!-- Overlay para fechar o menu mobile ao clicar fora -->
+      <div id="menu-overlay" class="menu-overlay"></div>
+
+      <!-- Sidebar Retrátil -->
+      <aside class="sidebar glass-sidebar" id="sidebar">
+        <h3>Módulos do Curso</h3>
+
+        <div class="modulo ativo">
+          <button class="modulo-btn">
+            <span>1. Nível Básico</span>
+            <span class="icone-seta">▼</span>
+          </button>
+          <ul class="lista-aulas">
+            <li class="ativa" data-titulo="Aula 01: Saludos y Presentaciones"
+              data-desc="Aprenda a saudar as pessoas e se apresentar em espanhol de forma natural."
+              data-video="8TBQCKVAYaU">
+              Aula 01: Saludos y Presentaciones
+            </li>
+            <li data-titulo="Aula 02: El Alfabeto y Pronunciación"
+              data-desc="Dominando os sons das letras e a pronúncia correta das palavras." data-video="kIhVmmBtBjY">
+              Aula 02: El Alfabeto
+            </li>
+          </ul>
+        </div>
+
+        <div class="modulo">
+          <button class="modulo-btn">
+            <span>2. Nível Intermediário</span>
+            <span class="icone-seta">▼</span>
+          </button>
+          <ul class="lista-aulas">
+            <li data-titulo="Aula 01: Verbos en Presente"
+              data-desc="Estrutura e conjugação dos principais verbos no presente do indicativo."
+              data-video="dQw4w9WgXcQ">
+              Aula 01: Verbos en Presente
+            </li>
+          </ul>
+        </div>
+
+        <div class="modulo">
+          <button class="modulo-btn">
+            <span>3. Nível Avançado</span>
+            <span class="icone-seta">▼</span>
+          </button>
+          <ul class="lista-aulas">
+            <li data-titulo="Aula 01: Expresiones Idiomáticas"
+              data-desc="Expressões nativas e espanhol para conversações fluentes e negócios." data-video="dQw4w9WgXcQ">
+              Aula 01: Expresiones Idiomáticas
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Player de Vídeo e Detalhes -->
+      <main class="conteudo-principal">
+        <div class="video-card glass-card">
+          <div class="video-container">
+            <!-- Div compatível com o Plyr -->
+            <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="8TBQCKVAYaU"></div>
+          </div>
+        </div>
+
+        <div class="detalhes-aula glass-card">
+          <h1 id="titulo-aula">Aula 01: Saludos y Presentaciones</h1>
+          <p id="desc-aula">Aprenda a saudar as pessoas e se apresentar em espanhol de forma natural.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Biblioteca JS do Plyr -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
